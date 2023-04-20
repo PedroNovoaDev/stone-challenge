@@ -13,7 +13,10 @@ module.exports = {
       console.log('User added successfully')
 
       res.sendStatus(200)
-    });
+    }).catch(error => {
+      console.log(error);
+      res.sendStatus(500);
+    });;
   },
 
   searchUserById: (req, res) => {
@@ -24,6 +27,9 @@ module.exports = {
       console.log(result)
 
       res.json(result)
-    });
+    }).catch(error => {
+      console.log(error);
+      res.sendStatus(500);
+    });;
   },
 };
