@@ -20,7 +20,7 @@ module.exports = {
   },
 
   searchUserById: (req, res) => {
-    const id = req.body.id;
+    const id = req.query.id;
 
     dynamodb.searchUserById(id).then((result) => {
 

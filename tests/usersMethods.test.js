@@ -19,7 +19,7 @@ describe('addNewUser', () => {
 
 describe('searchUserById', () => {
     it('should return the correct user information and return a 200 status code', async () => {
-        const req = { body: { id: '999' } };
+        const req = { query: { id: '999' } };
         const res = { sendStatus: jest.fn(), json: jest.fn() };
         const user = { id: '999', name: 'My test', password: 'password123' };
 
@@ -28,6 +28,6 @@ describe('searchUserById', () => {
         await searchUserById(req, res);
 
         expect(res.json).toHaveBeenCalledWith(user);
-        expect(dynamodb.searchUserById).toHaveBeenCalledWith(req.body.id);
+        expect(dynamodb.searchUserById).toHaveBeenCalledWith(req.query.id);
     });
 });
