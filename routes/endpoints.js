@@ -9,4 +9,6 @@ router.get('/increment-ton-visit-count', countController.incrementTonVisitCount)
 
 router.post('/add-new-user', usersController.addNewUser);
 
+router.post('/search-user-by-id', usersController.searchUserById);
+
 module.exports = router;

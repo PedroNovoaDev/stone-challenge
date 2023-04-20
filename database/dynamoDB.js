@@ -24,7 +24,7 @@ function addNewUser(user) {
     return dynamoDb.put(params).promise();
 };
 
-function getUserById(userId) {
+function searchUserById(userId) {
     const params = {
         TableName: 'stone-users',
         Key: {
@@ -35,4 +35,4 @@ function getUserById(userId) {
     return dynamoDb.get(params).promise();
 };
 
-module.exports = { init, addNewUser, getUserById, };
+module.exports = { init, addNewUser, searchUserById };

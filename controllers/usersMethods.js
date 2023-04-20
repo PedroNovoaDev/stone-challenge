@@ -1,4 +1,4 @@
-const dynamodb = require('../database/dynamoDB')
+const dynamodb = require('../database/dynamoDB');
 
 module.exports = {
   addNewUser: (req, res) => {
@@ -9,7 +9,21 @@ module.exports = {
     };
 
     dynamodb.addNewUser(user).then(() => {
-      res.status(200)
+
+      console.log('User added successfully')
+
+      res.sendStatus(200)
     });
-  }
+  },
+
+  searchUserById: (req, res) => {
+    const id = req.body.id;
+
+    dynamodb.searchUserById(id).then((result) => {
+
+      console.log(result)
+
+      res.sendStatus(200)
+    });
+  },
 };
