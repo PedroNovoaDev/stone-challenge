@@ -23,7 +23,7 @@ module.exports = {
 
       console.log(result)
 
-      res.sendStatus(200)
+      res.json(result)
     });
   },
 };
