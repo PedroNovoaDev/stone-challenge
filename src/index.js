@@ -1,9 +1,12 @@
+require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const routes = require('../routes/endpoints');
+const database = require('../database/dynamoDB');
+database.init();
 
 const app = express();
 app.use(helmet());
