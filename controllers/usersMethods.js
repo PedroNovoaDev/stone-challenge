@@ -1,4 +1,5 @@
 const dynamodb = require('../database/dynamoDB');
+const auth = require('../lib/auth');
 
 module.exports = {
   addNewUser: (req, res) => {
@@ -10,9 +11,10 @@ module.exports = {
 
     dynamodb.addNewUser(user).then(() => {
 
-      console.log('User added successfully')
+      console.log('User added successfully');
+      const token = auth.generateToken(user);
 
-      res.sendStatus(200)
+      res.status(200).json({ token });
     }).catch(error => {
       console.log(error);
       res.sendStatus(500);
@@ -20,16 +22,27 @@ module.exports = {
   },
 
   searchUserById: (req, res) => {
+    const token = req.headers.authorization;
     const id = req.query.id;
 
-    dynamodb.searchUserById(id).then((result) => {
+    if (!token) {
+      return res.status(401).json({ message: 'No token provided' });
+    }
 
-      console.log(result)
+    try {
+      auth.verifyToken(token);
 
-      res.json(result)
-    }).catch(error => {
-      console.log(error);
-      res.sendStatus(500);
-    });;
+      dynamodb.searchUserById(id).then((result) => {
+
+        console.log(result)
+
+        res.status(200).json(result)
+      }).catch(error => {
+        console.log(error);
+        res.sendStatus(500);
+      });
+    } catch (error) {
+      return res.status(401).json({ message: 'Invalid token' });
+    }
   },
 };
