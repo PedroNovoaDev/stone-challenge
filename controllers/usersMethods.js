@@ -3,6 +3,8 @@ const auth = require('../lib/auth');
 
 module.exports = {
   addNewUser: (req, res) => {
+    // #swagger.tags = ['User']
+    // #swagger.description = 'Creates a new user with name and password.'
     const user = {
       id: req.body.id,
       name: req.body.name,
@@ -22,6 +24,8 @@ module.exports = {
   },
 
   searchUserById: (req, res) => {
+    // #swagger.tags = ['User']
+    // #swagger.description = 'Searchs DynamoDB for a existing user by his ID.'
     const token = req.headers.authorization;
     const id = req.query.id;
 
