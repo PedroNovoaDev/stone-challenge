@@ -16,33 +16,6 @@
     "http"
   ],
   "paths": {
-    "/show-ton-visit-count": {
-      "get": {
-        "tags": [
-          "Count"
-        ],
-        "description": "Show Ton website visit count at the moment of the call",
-        "parameters": [],
-        "responses": {}
-      }
-    },
-    "/increment-ton-visit-count": {
-      "get": {
-        "tags": [
-          "Count"
-        ],
-        "description": "Increment Ton website visit count at the moment of the call.",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
     "/add-new-user": {
       "post": {
         "tags": [
@@ -94,6 +67,42 @@
           {
             "name": "id",
             "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/show-ton-visit-count": {
+      "get": {
+        "tags": [
+          "Count"
+        ],
+        "description": "Show Ton website visit count at the moment of the call",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/increment-ton-visit-count": {
+      "get": {
+        "tags": [
+          "Count"
+        ],
+        "description": "Increment Ton website visit count at the moment of the call.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           }
         ],
