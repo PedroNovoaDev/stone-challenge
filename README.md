@@ -13,8 +13,8 @@ Bonus points for clean code practices, good versioning,  deploying in a server a
 
 ## Stack used
 
-**Back-end:** Node, Express, DynamoDB
-**Infrastucture:** AWS ECR and AWS AppRunner
+**Back-end:** Node, Express
+**Infrastucture:** AWS ECR, AWS AppRunner and DynamoDB
 
 
 ## Running local
@@ -43,14 +43,19 @@ Run the server
   npm start
 ```
 
-
 ## Environment variables
 
 To run this project, you'll need to add the following env variables in your .env
 
-`AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` / `AWS_REGION`
+`AWS_ACCESS_KEY_ID`
+
+`AWS_SECRET_ACCESS_KEY`
+
+`AWS_REGION`
 
 `JWT_SECRET`
+
+
 ## Endpoints
 
 #### Creates a new user with name and password.
@@ -100,6 +105,7 @@ To run this project, you'll need to add the following env variables in your .env
 | Header   | Type       | Description                                   |
 | :---------- | :--------- | :------------------------------------------ |
 | `authorization`      | `string` | **Required**. Token provided in the creation of user |
+
 
 ## Documentation
 
