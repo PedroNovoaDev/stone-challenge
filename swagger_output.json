@@ -16,6 +16,20 @@
     "http"
   ],
   "paths": {
+    "/health-check": {
+      "get": {
+        "tags": [
+          "Health Check"
+        ],
+        "description": "Check health of the application.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/add-new-user": {
       "post": {
         "tags": [

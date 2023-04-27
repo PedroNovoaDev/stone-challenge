@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const countController = require('../controllers/countMethods');
+const helthCheckController = require('../controllers/healthCheckMethods');
 const usersController = require('../controllers/usersMethods');
+const countController = require('../controllers/countMethods');
+
+router.get('/health-check', helthCheckController.healthCheck);
 
 router.post('/add-new-user', usersController.addNewUser);
 
