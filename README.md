@@ -1,10 +1,20 @@
-
 # Stone Challenge API
 
 This API was developed as part of a challenge for a job position in Stone.
+
+The challenge consisted of developing an API that would count the number of accesses to Ton's website and allow for a user to create an account. The API should have 4 routes:
+
+1. A route to increase the number of hits;
+2. A route to check the number of accesses;
+3. A route to create a user;
+4. A route to view a user's information.
+
+Bonus points for clean code practices, good versioning,  deploying in a server and having a documentation.
+
 ## Stack used
 
-**Back-end:** Node, Express
+**Back-end:** Node, Express, DynamoDB
+**Infrastucture:** AWS ECR and AWS AppRunner
 
 
 ## Running local
